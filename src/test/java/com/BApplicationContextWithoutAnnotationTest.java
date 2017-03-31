@@ -1,5 +1,5 @@
-import com.coco.AppConfig;
-import com.coco.MyService;
+import com.benoitparmentier.AppConfig;
+import com.benoitparmentier.MyService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 /**
  * Created by PC on 01/11/2016.
  */
-public class ApplicationContextWithoutAnnotationTest {
+public class BApplicationContextWithoutAnnotationTest {
 
     @Autowired
     private MyService myService;
@@ -18,7 +18,7 @@ public class ApplicationContextWithoutAnnotationTest {
     public void setup(){
 
         ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
-        com.coco.MyService myService = context.getBean(com.coco.MyService.class);
+        com.benoitparmentier.MyService myService = context.getBean(com.benoitparmentier.MyService.class);
         Assert.assertSame(myService.doSomething(), "youyou");
 
     }
