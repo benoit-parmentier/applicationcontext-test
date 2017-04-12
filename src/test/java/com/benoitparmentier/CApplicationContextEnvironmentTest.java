@@ -1,9 +1,10 @@
+package com;
+
 import com.benoitparmentier.AppConfig;
-import com.benoitparmentier.MyService;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -12,17 +13,17 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = AppConfig.class)
-public class BApplicationContextAnnotationTest {
+public class CApplicationContextEnvironmentTest {
+
 
     @Autowired
-    private MyService myService;
+    private Environment env;
 
     @Test
     public void setup(){
 
-        Assert.assertSame(myService.doSomething(), "youyou");
+        System.out.println("env : " + env.getProperty("java.version"));
+        System.out.println("env : " + env.getProperty("USERNAME"));
 
     }
-
-
 }

@@ -1,6 +1,8 @@
+package com;
+
 import com.benoitparmentier.AppConfig;
 import org.junit.Test;
-import org.springframework.boot.SpringApplication;
+//import org.springframework.boot.SpringApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 /**
@@ -8,12 +10,12 @@ import org.springframework.context.ConfigurableApplicationContext;
  */
 public class AppConfigTest {
 
-    @Test
+  /*  @Test
     public void test(){
 
         ConfigurableApplicationContext run = SpringApplication.run(AppConfig.class);
 
 
     }
-
+*/
 }

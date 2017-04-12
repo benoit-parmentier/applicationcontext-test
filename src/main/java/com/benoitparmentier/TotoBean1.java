@@ -1,4 +1,4 @@
-package com.coco;
+package com.benoitparmentier;
 
 /**
  * Created by PC on 31/03/2017.

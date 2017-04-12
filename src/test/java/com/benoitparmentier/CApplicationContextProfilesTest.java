@@ -1,10 +1,9 @@
+package com;
+
 import com.benoitparmentier.AppConfig;
-import com.benoitparmentier.MyServiceProd;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ActiveProfiles;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -13,16 +12,20 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = AppConfig.class)
-@ActiveProfiles("prod")
-public class CApplicationContextPropertiesTest {
+public class CApplicationContextProfilesTest {
 
-    @Autowired
-    private MyServiceProd myServiceProd;
+
+    @Value("${java.version}")
+    private String javaVersion;
+
+    @Value("${db.user}")
+    private String dbUser;
 
     @Test
     public void setup(){
 
-        Assert.assertSame(myServiceProd.doSomething(), "youyouProd");
+        System.out.println("javaVersion : " + javaVersion);
+        System.out.println("dbUser : " + dbUser);
 
     }
 }
