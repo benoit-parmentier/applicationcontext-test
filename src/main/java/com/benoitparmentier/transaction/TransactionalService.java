@@ -1,7 +1,7 @@
 package com.benoitparmentier.transaction;
 
+import com.benoitparmentier.data.ActorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -9,15 +9,22 @@ import org.springframework.transaction.annotation.Transactional;
 public class TransactionalService {
 
     @Autowired
-    private JdbcTemplate jdbcTemplate;
-
-    @Autowired
-    private TransactionalService transactionalService;
+    private ActorRepository actorRepository;
 
     @Transactional
-    public void test(){
-        jdbcTemplate.update("INSERT INTO actor VALUES ('AL', 'PACINO')");
-        jdbcTemplate.update("INSERT INTO ac VALUES ('Marlon', 'PACINO')");
+    public int addThreeWonderfulActors() {
+        int update = actorRepository.update("Al", "PACINO");
+        update += actorRepository.update("Marlon", "BRANDO");
+        update += actorRepository.update("Leonard", "DICAPRIO");
+        return update;
+    }
+
+    @Transactional
+    public int addTwoWonderfulActorsError() {
+        int update = 0;
+        update = actorRepository.update("Al", "PACINO");
+        update += actorRepository.updateWithError("Marlon", "BRANDO");
+        return update;
     }
 
 }

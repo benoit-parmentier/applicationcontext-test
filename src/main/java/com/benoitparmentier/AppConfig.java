@@ -8,12 +8,9 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
 import org.springframework.context.annotation.*;
 
-/**
- * Created by PC on 01/11/2016.
- */
 @Configuration
 @ComponentScan("com.benoitparmentier")
-@PropertySource("classpath:/config/app.properties")
+//@PropertySource("classpath:/config/app.properties")
 //@EnableAutoConfiguration
 @Import({TransactionConfig.class, JDBCConfig.class})
 @EnableCaching
