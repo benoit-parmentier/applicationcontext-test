@@ -14,7 +14,7 @@ public class ActorRepository {
         return jdbcTemplate.update("INSERT INTO actor VALUES (?, ?)", firstName, lastName);
     }
 
-    public int updateWithError(String firstName, String lastName) {
+    public int updateWithBadSQLGrammarException(String firstName, String lastName) {
         return jdbcTemplate.update("INSERTOUT INTO actor VALUES (?, ?)", firstName, lastName);
     }
 }

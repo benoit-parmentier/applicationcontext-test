@@ -6,7 +6,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,19 +22,19 @@ public class TransactionServiceTest {
 
     @Test
     @Transactional
-    public void should_addTwoWonderfulActors_return_two() {
-        int countService = transactionalService.addThreeWonderfulActors();
+    public void test_addTwoWonderfulActors() {
+        int countService = transactionalService.addTwoWonderfulActors();
         int countBDD = jdbcTemplate.queryForObject("SELECT count(*) FROM actor", Integer.class);
-        assert countService == 3;
-        assert countBDD == 3;
+        assert countService == 2;
+        assert countBDD == 2;
     }
 
     @Test
-    public void should_addTwoWonderfulActors_return_zero() {
+    public void test_addThreeWonderfulActorsRuntimeException() {
         int countService = 0;
         int countBDD = 0;
         try {
-            countService = transactionalService.addTwoWonderfulActorsError();
+            countService = transactionalService.addThreeWonderfulActorsRuntimeException();
             //We will never be there
             assert true == false;
         } catch (RuntimeException e) {
@@ -44,6 +43,34 @@ public class TransactionServiceTest {
             Assertions.assertThat(countBDD).isEqualTo(0);
         }
     }
+
+    @Test
+    @Transactional
+    public void test_addFourWonderfulActorsCheckedException() {
+        int countBDD = 0;
+        try {
+            transactionalService.addFourWonderfulActorsCheckedException();
+            //We will never be there
+            assert true == false;
+        } catch (Exception e) {
+            countBDD = jdbcTemplate.queryForObject("SELECT count(*) FROM actor", Integer.class);
+            Assertions.assertThat(countBDD).isEqualTo(4);
+        }
+    }
+
+    @Test
+    public void test_addFiveWonderfulActorsRollBackForCheckedException() {
+        int countBDD = 0;
+        try {
+            transactionalService.addFiveWonderfulActorsRollBackForCheckedException();
+            //We will never be there
+            assert true == false;
+        } catch (Exception e) {
+            countBDD = jdbcTemplate.queryForObject("SELECT count(*) FROM actor", Integer.class);
+            Assertions.assertThat(countBDD).isEqualTo(0);
+        }
+    }
+
 
 
 }
