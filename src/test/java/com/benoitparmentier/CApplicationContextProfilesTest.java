@@ -1,6 +1,6 @@
 package com;
 
-import com.benoitparmentier.AppConfig;
+import com.benoitparmentier.config.AppConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Value;

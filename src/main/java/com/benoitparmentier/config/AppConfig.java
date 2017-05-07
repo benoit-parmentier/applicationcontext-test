@@ -1,15 +1,13 @@
-package com.benoitparmentier;
+package com.benoitparmentier.config;
 
-import com.benoitparmentier.config.transaction.JDBCConfig;
-import com.benoitparmentier.config.transaction.TransactionConfig;
+import com.benoitparmentier.TotoBean1;
+import com.benoitparmentier.config.JDBCConfig;
+import com.benoitparmentier.config.TransactionConfig;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
 import org.springframework.context.annotation.*;
 
-import org.springframework.cache.CacheManager;
-import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -19,7 +17,7 @@ import org.springframework.context.annotation.PropertySource;
 @ComponentScan("com.benoitparmentier")
 //@PropertySource("classpath:/config/app.properties")
 //@EnableAutoConfiguration
-@Import({TransactionConfig.class, JDBCConfig.class})
+@Import({TransactionConfig.class, JDBCConfig.class, EntityManagerConfig.class})
 @PropertySource("classpath:/config/app.properties")
 @EnableCaching
 public class AppConfig {

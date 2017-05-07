@@ -1,4 +1,4 @@
-package com.benoitparmentier.data;
+package com.benoitparmentier.service;
 
 import com.benoitparmentier.model.Actor;
 import org.springframework.beans.factory.annotation.Autowired;

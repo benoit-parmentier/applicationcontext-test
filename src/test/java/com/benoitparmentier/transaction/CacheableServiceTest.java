@@ -1,7 +1,7 @@
-package com.benoitparmentier.data;
+package com.benoitparmentier.transaction;
 
-import com.benoitparmentier.AppConfig;
-import com.benoitparmentier.data.CacheableService;
+import com.benoitparmentier.config.AppConfig;
+import com.benoitparmentier.service.CacheableService;
 import com.benoitparmentier.model.Actor;
 import org.junit.Test;
 import org.junit.runner.RunWith;

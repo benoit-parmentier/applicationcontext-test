@@ -1,4 +1,4 @@
-package com.benoitparmentier.config.transaction;
+package com.benoitparmentier.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -13,7 +13,9 @@ public class JDBCConfig {
     @Bean
     public DataSource dataSource() {
         EmbeddedDatabaseBuilder embeddedDatabaseBuilder = new EmbeddedDatabaseBuilder();
-        return embeddedDatabaseBuilder.setName("testdb").setType(EmbeddedDatabaseType.H2).addScript("classpath:/testdb/schema.db").build();
+        return embeddedDatabaseBuilder.setName("testdb").setType(EmbeddedDatabaseType.HSQL)
+                .addScript("classpath:/testdb/schema.db")
+                .build();
     }
 
     @Bean

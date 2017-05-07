@@ -1,6 +1,7 @@
 package com.benoitparmentier.transaction;
 
-import com.benoitparmentier.AppConfig;
+import com.benoitparmentier.config.AppConfig;
+import com.benoitparmentier.service.TransactionalService;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;

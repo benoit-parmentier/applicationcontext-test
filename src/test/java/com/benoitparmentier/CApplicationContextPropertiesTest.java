@@ -1,6 +1,6 @@
-package com;
+package com.benoitparmentier;
 
-import com.benoitparmentier.AppConfig;
+import com.benoitparmentier.config.AppConfig;
 import com.benoitparmentier.MyServiceProd;
 import org.junit.Assert;
 import org.junit.Test;

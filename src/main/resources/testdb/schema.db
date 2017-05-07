@@ -1,4 +1,15 @@
+DROP TABLE IF EXISTS actor;
+
 CREATE TABLE actor (
     firstName varchar(255),
     lastName varchar(255)
 );
+
+DROP TABLE IF EXISTS movie;
+
+CREATE TABLE movie (
+    id varchar(40),
+    name varchar(255)
+);
+
+INSERT INTO movie (id,name) VALUES ('1', 'The Godfather');

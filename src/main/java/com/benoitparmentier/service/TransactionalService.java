@@ -1,6 +1,6 @@
-package com.benoitparmentier.transaction;
+package com.benoitparmentier.service;
 
-import com.benoitparmentier.data.ActorRepository;
+import com.benoitparmentier.repository.ActorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

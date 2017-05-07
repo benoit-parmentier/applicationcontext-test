@@ -1,4 +1,4 @@
-package com.benoitparmentier.config.transaction;
+package com.benoitparmentier.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
