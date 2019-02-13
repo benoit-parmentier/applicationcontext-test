@@ -3,6 +3,9 @@ package com.benoitparmentier.config;
 import com.benoitparmentier.TotoBean1;
 import com.benoitparmentier.config.JDBCConfig;
 import com.benoitparmentier.config.TransactionConfig;
+import com.benoitparmentier.factory.AccountServiceFactoryBean;
+import com.benoitparmentier.service.AccountService;
+import com.benoitparmentier.service.CustomerService;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
@@ -38,6 +41,17 @@ public class AppConfig {
     public CacheManager concurrentMapCacheManager() {
         return new ConcurrentMapCacheManager("characters");
     }
+
+    @Bean
+    public AccountServiceFactoryBean accountService() {
+        return new AccountServiceFactoryBean();
+    }
+
+    @Bean
+    public CustomerService customerService(AccountService accountService) {
+        return new CustomerService(accountService);
+    }
+
 
 
 }

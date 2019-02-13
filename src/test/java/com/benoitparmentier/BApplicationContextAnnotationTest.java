@@ -1,7 +1,8 @@
-package com;
+package com.benoitparmentier;
 
 import com.benoitparmentier.config.AppConfig;
 import com.benoitparmentier.MyService;
+import com.benoitparmentier.service.CustomerService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,11 +20,14 @@ public class BApplicationContextAnnotationTest {
     @Autowired
     private MyService myService;
 
+    @Autowired
+    private CustomerService customerService;
+
     @Test
     public void setup(){
 
         Assert.assertSame(myService.doSomething(), "youyou");
-
+        customerService.test();
     }
 
 
